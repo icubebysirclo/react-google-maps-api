@@ -1,13 +1,13 @@
-examples/
 src/
 .babelrc
 .editorconfig
 .eslintignore
 .prettierignore
+.eslintrc
 .storybook/
 .docz/
 .vscode/
 webpack.config.js
 yarn.lock
-docs/
+package-lock.json
 googleMapsKey.js
