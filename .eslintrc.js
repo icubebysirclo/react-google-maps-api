@@ -129,7 +129,7 @@ module.exports = {
         amd: true
       }
     ],
-    'import/named': 2,
+    'import/named': 'off',
     'import/namespace': 2,
     'import/export': 2,
     'import/no-duplicates': 0,
