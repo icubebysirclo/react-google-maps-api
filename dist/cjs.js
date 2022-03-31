@@ -934,6 +934,12 @@ class Loader {
         }
         return url;
     }
+    deleteScript() {
+        const script = document.getElementById(this.id);
+        if (script) {
+            script.remove();
+        }
+    }
     /**
      * Load the Google Maps JavaScript API script and return a Promise.
      */
@@ -985,12 +991,6 @@ class Loader {
             script.nonce = this.nonce;
         }
         document.head.appendChild(script);
-    }
-    deleteScript() {
-        const script = document.getElementById(this.id);
-        if (script) {
-            script.remove();
-        }
     }
     /**
      * Reset the loader state.
@@ -1083,7 +1083,7 @@ mapIds, url, }) {
             url,
             nonce,
         });
-    }, [id, googleMapsApiKey, version, libraries, language, region, mapIds, nonce]);
+    }, [id, googleMapsApiKey, version, libraries, language, region, mapIds, url, nonce]);
     React__namespace.useEffect(function effect() {
         if (isLoaded) {
             return;
@@ -1487,7 +1487,8 @@ var ClusterIcon = /** @class */ (function () {
     function ClusterIcon(cluster, styles) {
         cluster.getClusterer().extend(ClusterIcon, google.maps.OverlayView);
         this.cluster = cluster;
-        this.className = this.cluster.getClusterer().getClusterClass();
+        this.clusterClassName = this.cluster.getClusterer().getClusterClass();
+        this.className = this.clusterClassName;
         this.styles = styles;
         this.center = undefined;
         this.div = null;
@@ -1714,12 +1715,13 @@ var ClusterIcon = /** @class */ (function () {
     };
     ClusterIcon.prototype.useStyle = function (sums) {
         this.sums = sums;
-        var style = this.styles[Math.min(this.styles.length - 1, Math.max(0, sums.index - 1))];
+        var styles = this.cluster.getClusterer().getStyles();
+        var style = styles[Math.min(styles.length - 1, Math.max(0, sums.index - 1))];
         this.url = style.url;
         this.height = style.height;
         this.width = style.width;
         if (style.className)
-            this.className = this.className + " " + style.className;
+            this.className = this.clusterClassName + " " + style.className;
         this.anchorText = style.anchorText || [0, 0];
         this.anchorIcon = style.anchorIcon || [this.height / 2, this.width / 2];
         this.textColor = style.textColor || 'black';
