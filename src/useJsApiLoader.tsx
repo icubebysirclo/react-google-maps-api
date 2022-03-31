@@ -54,7 +54,7 @@ export function useJsApiLoader({
       url,
       nonce,
     })
-  }, [id, googleMapsApiKey, version, libraries, language, region, mapIds, nonce])
+  }, [id, googleMapsApiKey, version, libraries, language, region, mapIds, url, nonce])
 
   React.useEffect(function effect() {
     if (isLoaded) {
