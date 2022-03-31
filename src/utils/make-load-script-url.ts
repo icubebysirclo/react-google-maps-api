@@ -3,7 +3,7 @@ import invariant from 'invariant'
 export type Libraries = ("drawing" | "geometry" | "localContext" | "places" | "visualization")[]
 
 export interface LoadScriptUrlOptions {
-  googleMapsApiKey: string | ""
+  googleMapsApiKey: string | ''
   googleMapsClientId?: string
   version?: string
   language?: string
@@ -11,6 +11,7 @@ export interface LoadScriptUrlOptions {
   libraries?: Libraries
   channel?: string
   mapIds?: string[]
+  url?: string
 }
 
 export function makeLoadScriptUrl({
