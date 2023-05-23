@@ -99,8 +99,8 @@
     "invariant": "2.2.4"
   },
   "peerDependencies": {
-    "react": "^16.6.3 || ^17.0.0",
-    "react-dom": "^16.6.3 || ^17.0.0"
+    "react": "^16.6.3 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.6.3 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "21.0.0",
